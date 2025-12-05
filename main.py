@@ -4,10 +4,8 @@ import matplotlib.pyplot as plt
 from typing import Tuple, Optional, List, Set, Any
 
 MAX_NODES = 16
-MAX_HAM_NODES = 10  # for later pages
 
 BASE_NODE_SIZE = 320
-# HIGHLIGHT_NODE_SIZE = 420
 
 EXAMPLE_TREES = {
     "Perfect (height 3)": ["A", "B", "C", "D", "E", "F", "G"],
@@ -17,7 +15,7 @@ EXAMPLE_TREES = {
 }
 
 st.set_page_config(
-    page_title="Discrete Structures Toolkit",
+    page_title="Discrete Structures Project",
     layout="wide",
 )
 
@@ -85,7 +83,6 @@ def draw_graph(
         ax.axis("off")
         return fig
 
-    # k controls ideal edge length, scale the overall spread
     pos = choose_layout(G)
 
     BASE_NODE_SIZE = 260
@@ -185,7 +182,7 @@ def choose_layout(G: nx.Graph) -> dict:
     is_path_like = (m == n - 1) and (max_deg <= 2)
 
     if is_path_like and n > 2:
-        # return nx.shell_layout(G, nlist=[list(G.nodes())]) # alt method im keeping here for a different look
+
         return nx.circular_layout(G)
     else:
         return nx.spring_layout(G, seed=42, k=1.2, scale=3.0)
@@ -296,7 +293,7 @@ def binary_tree_properties(level_list: List[Optional[str]]):
         else:
             internals += 1
 
-    # very simple checks; good enough for teaching demo
+
     is_full = all(
         v is None or (
             ((2 * i + 1) < len(level_list) and level_list[2 * i + 1] is not None) and
@@ -736,7 +733,6 @@ Here you can make **binary trees** and view their different traversals.
         st.caption("Level-order nodes (use None / - for missing children):")
         level_text = st.text_area(
             "Level-order sequence",
-            value=st.session_state.page2_level_text,
             height=80,
             key="page2_level_text",
         )
@@ -803,9 +799,6 @@ Here you can make **binary trees** and view their different traversals.
             st.write(f"Full binary tree: `{'Yes' if props['is_full'] else 'No'}`")
             st.write(f"Complete binary tree: `{'Yes' if props['is_complete'] else 'No'}`")
 
-# ----------------- Page 3: Spanning Trees & MSTs ----------------- #
-
-# ----------------- Page 3: Spanning Trees & MSTs ----------------- #
 # ----------------- Page 3: Spanning Trees & MSTs ----------------- #
 def page_spanning_trees():
     st.header("Page 3: Spanning Trees & MSTs")
@@ -1229,7 +1222,7 @@ Here you can generate small simple graphs check for **planarity**, **Euler trail
 # ----------------- Main ----------------- #
 
 def main():
-    st.sidebar.title("Discrete Structures Toolkit")
+    st.sidebar.title("Discrete Structures Project")
     page = st.sidebar.radio(
         "Go to page:",
         [
