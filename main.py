@@ -5,7 +5,8 @@ from typing import Tuple, Optional, List, Set, Any
 
 MAX_NODES = 16
 
-BASE_NODE_SIZE = 320
+BASE_NODE_SIZE = 260
+
 
 EXAMPLE_TREES = {
     "Perfect (height 3)": ["A", "B", "C", "D", "E", "F", "G"],
@@ -84,9 +85,6 @@ def draw_graph(
         return fig
 
     pos = choose_layout(G)
-
-    BASE_NODE_SIZE = 260
-    HIGHLIGHT_NODE_SIZE = 340
 
     nx.draw_networkx_nodes(
         G,
