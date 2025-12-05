@@ -675,8 +675,6 @@ Here you can build a small **simple graph** (≤ 16 nodes) and try:
                 ax.axis("off")
                 st.pyplot(fig_cc)
 
-
-
 # ----------------- Page 2 (trees) ----------------- #
 
 def page_trees():
@@ -985,7 +983,7 @@ Here you can generate **minimum spanning trees (MSTs)** for weighted, undirected
         ax.axis("off")
         st.pyplot(fig)
 
-
+# ----------------- Page 4: Planarity, Euler and Hamilton ----------------- #
 def page_planarity_euler_hamilton():
     st.header("Page 4: Planarity, Eulerian & Hamiltonian")
 
